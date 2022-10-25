@@ -6,6 +6,9 @@ Feature: Library app login feature
 
   Accounts are: librarian, student, admin
 
+  Background:
+    Given user is on the library login page
+
   @smoke @librarian @employee
   Scenario: Login as a librarian
     Given user is on the library login page
