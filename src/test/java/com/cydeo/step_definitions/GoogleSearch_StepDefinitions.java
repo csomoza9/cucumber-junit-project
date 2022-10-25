@@ -31,11 +31,11 @@ public class GoogleSearch_StepDefinitions {
 
     @Then("user sees {string} in the google title")
     public void userSeesIsInTheGoogleTitle(String str) {
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(str));
+        Assert.assertEquals(str, Driver.getDriver().getTitle());
     }
 
     @When("user types {string} in the google search box and clicks enter")
-    public void userTypesInTheGoogleSearchBoxAndClicksEnter(String str) {
-        googleSearchPage.searchBox.sendKeys(str + Keys.ENTER);
+    public void userTypesInTheGoogleSearchBoxAndClicksEnter(String searchKeyword) {
+        googleSearchPage.searchBox.sendKeys(searchKeyword + Keys.ENTER);
     }
 }
