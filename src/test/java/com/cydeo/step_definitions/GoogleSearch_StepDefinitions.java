@@ -9,7 +9,9 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 public class GoogleSearch_StepDefinitions {
-    GoogleSearchPage searchPage = new GoogleSearchPage();
+
+    GoogleSearchPage googleSearchPage = new GoogleSearchPage();
+
 
     @Given("user is on Google search page")
     public void user_is_on_google_search_page() {
@@ -18,11 +20,22 @@ public class GoogleSearch_StepDefinitions {
 
     @When("user types apple in the google search box and clicks enter")
     public void user_types_apple_in_the_google_search_box_and_clicks_enter() {
-        searchPage.searchBox.sendKeys("apple" + Keys.ENTER);
+        googleSearchPage.searchBox.sendKeys("apple"+ Keys.ENTER);
     }
 
-    @Then("verify user sees apple in google title")
-    public void user_sees_apple_google_title() {
-        Assert.assertTrue("Title verification is failed!",Driver.getDriver().getTitle().contains("apple"));
+
+    @Then("user sees apple – Google Search is in the google title")
+    public void user_sees_apple_google_search_is_in_the_google_title() {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains("apple"));
+    }
+
+    @Then("user sees {string} in the google title")
+    public void userSeesIsInTheGoogleTitle(String str) {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(str));
+    }
+
+    @When("user types {string} in the google search box and clicks enter")
+    public void userTypesInTheGoogleSearchBoxAndClicksEnter(String str) {
+        googleSearchPage.searchBox.sendKeys(str + Keys.ENTER);
     }
 }
