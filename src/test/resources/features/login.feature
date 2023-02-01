@@ -9,7 +9,7 @@ Feature: Library app login feature
   Background: for the scenarios in the feature file, user is expected to be on login page
     Given user is on the library login page
 
-
+  @smoke
   Scenario: Login as a librarian
     //Given user is on the library login page
     When user enters librarian username
